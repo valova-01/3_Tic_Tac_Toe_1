@@ -1,29 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import { createElement } from 'react';
+import React from 'react';
+import Game from './components/Game/game';
+import styles from './app.module.css';
 
-export const App = () => {
-	const currentYear = new Date().getFullYear();
-	return createElement(
-		'div',
-		{ className: 'App' },
-		createElement(
-			'header',
-			{ className: 'App-header' },
-			createElement('img', { src: logo, className: 'App-logo', alt: 'logo' }),
-			createElement('p', null, 'Edit ', createElement('code', null, 'src/App.js'), ' and save to reload.'),
-			createElement(
-				'a',
-				{
-					className: 'App-link',
-					href: 'https://reactjs.org',
-					target: '_blank',
-					rel: 'noopener noreferrer',
-				},
-				'Learn React',
-			),
-		),
+const App = () => {
+	const currentPlayer = 'X';
+	const isGameEnded = false;
+	const isDraw = false;
 
-		createElement('footer', null, createElement('p', null, 'Текущий год: ', currentYear)),
+	return (
+		<div className={styles.App}>
+			<Game currentPlayer={currentPlayer} isGameEnded={isGameEnded} isDraw={isDraw} />
+		</div>
 	);
 };
+
+export default App;
